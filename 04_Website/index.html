@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusEvents | Event Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">CE</span><span>CampusEvents<small>EVENT MANAGEMENT SYSTEM</small></span></a>
+    <nav><a href="#dashboard">Dashboard</a><a href="#events">Events</a><a href="#registration">Registration</a><a href="#participants">Participants</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div><p class="eyebrow">PLAN • ORGANISE • CELEBRATE</p>
+        <h1>Make every campus<br><span>event memorable.</span></h1>
+        <p class="hero-copy">A simple place to manage college events and participant registrations.</p>
+        <a class="primary-btn" href="#registration">Register a participant <b>→</b></a>
+      </div>
+      <div class="hero-art"><div class="art-circle"></div><div class="art-card"><span>UPCOMING EVENT</span><strong>Campus Fest</strong><small>Music • Fun • Friends</small><div class="art-date">28 <small>NOV</small></div></div><div class="spark">✦</div></div>
+    </section>
+
+    <section id="dashboard" class="stats">
+      <article class="stat-card"><span class="stat-icon purple">▦</span><div><p>Total Events</p><h2 id="totalEvents">0</h2></div></article>
+      <article class="stat-card"><span class="stat-icon orange">♙</span><div><p>Registrations</p><h2 id="totalRegistrations">0</h2></div></article>
+      <article class="stat-card"><span class="stat-icon green">✓</span><div><p>Upcoming Events</p><h2 id="upcomingEvents">0</h2></div></article>
+    </section>
+
+    <section id="events" class="section">
+      <div class="section-heading"><div><p class="eyebrow">WHAT'S HAPPENING</p><h2>Explore events</h2></div><button class="outline-btn" id="showEventForm">+ Add event</button></div>
+      <div class="event-form panel hidden" id="eventFormPanel">
+        <h3>Add a new event</h3>
+        <form id="eventForm" class="form-grid">
+          <label>Event name<input id="eventName" required maxlength="50" placeholder="e.g. Coding Competition"></label>
+          <label>Event date<input id="eventDate" type="date" required></label>
+          <label>Venue<input id="eventVenue" required placeholder="e.g. Seminar Hall"></label>
+          <label>Category<select id="eventCategory"><option>Workshop</option><option>Competition</option><option>Cultural</option><option>Sports</option><option>Seminar</option></select></label>
+          <div class="form-actions"><button class="primary-btn" type="submit">Save event</button><button class="text-btn" type="button" id="cancelEvent">Cancel</button></div>
+        </form>
+      </div>
+      <div class="event-grid" id="eventList"></div>
+    </section>
+
+    <section id="registration" class="section split-section">
+      <div><p class="eyebrow">JOIN THE EXPERIENCE</p><h2>Participant<br>registration</h2><p class="muted">Fill in the details below to register for an event. All fields are checked before saving.</p><div class="note-box">✦ Your registration is saved in this browser, so it stays available when you reopen the page on the same device.</div></div>
+      <div class="panel">
+        <form id="registrationForm">
+          <label>Full name<input id="participantName" required minlength="2" placeholder="Enter your name"></label>
+          <label>Email address<input id="participantEmail" type="email" required placeholder="name@example.com"></label>
+          <label>Phone number<input id="participantPhone" type="tel" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number"></label>
+          <label>Select event<select id="selectedEvent" required></select></label>
+          <button class="primary-btn full-btn" type="submit">Complete registration <b>→</b></button>
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="participants" class="section">
+      <div class="section-heading"><div><p class="eyebrow">REGISTRATION RECORDS</p><h2>Participants</h2></div><input id="searchInput" class="search" placeholder="Search by name or email..."></div>
+      <div class="table-wrap panel"><table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Event</th><th>Action</th></tr></thead><tbody id="participantTable"></tbody></table><p id="emptyMessage" class="empty-message">No registrations yet. Add the first participant above.</p></div>
+    </section>
+    <footer><span>CampusEvents</span><span>Mini Project • CSD0111 • 2026</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
